@@ -1,0 +1,13 @@
+streamlit
+pandas
+numpy
+opencv-python
+Pillow
+requests
+deepface
+face_recognition
+gspread
+oauth2client
+pinecone-client
+cmake
+python-dotenv
