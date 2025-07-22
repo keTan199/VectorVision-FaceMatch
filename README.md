@@ -17,7 +17,6 @@ This tool is useful for humanitarian organizations, public volunteers, and polic
 
 ---
 
-
 ## 🧠 How It Works
 
 ### 🔗 Data Collection
@@ -54,5 +53,51 @@ This tool is useful for humanitarian organizations, public volunteers, and polic
 
 ---
 
+## 🖼️ App Interface Preview
+
+### 📌 Project Layout
+
+![Project Layout](https://drive.google.com/uc?export=view&id=1i6Gz-4q4lyf7LAVSKRxAVhq8A2AP7lKr)
+
+### 🔍 Search Result Example
+
+![Search Result](https://drive.google.com/uc?export=view&id=1lTdItMMTOHK24NDfLfeKxHmXRx303xMK)
+
+---
+
 ## ⚙️ System Architecture
+
+The system follows a modular architecture combining client-side user interaction with backend face processing and vector search. Here's a breakdown:
+
+### 1. User Interface (Frontend)
+- Built using **Streamlit**
+- Allows users to:
+  - Upload face images
+  - View match results
+  - Trigger database updates
+
+### 2. Face Detection & Embedding
+- Uses `face_recognition` to:
+  - Detect a single face in the uploaded image
+  - Generate a 128-dimensional vector (embedding)
+
+### 3. Vector Similarity Search
+- Embeddings are compared against a **Pinecone** vector database
+- Uses **cosine similarity** to find the closest matches
+
+### 4. Metadata Management
+- A **Google Sheet** acts as a structured backend database
+- Stores:
+  - Names, age, gender, last seen location, contact info
+  - Google Drive image file IDs (publicly shared)
+
+### 5. Image Access
+- Images submitted via Google Form are uploaded to **Google Drive**
+- The system fetches these using direct image URLs
+
+### 6. Auto-Sync & Update
+- On clicking "🔄 Update Database":
+  - New Google Sheet rows are fetched
+  - Corresponding images are processed
+  - Embeddings are added to the Pinecone database
 
