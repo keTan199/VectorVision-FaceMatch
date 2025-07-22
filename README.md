@@ -17,12 +17,6 @@ This tool is useful for humanitarian organizations, public volunteers, and polic
 
 ---
 
-## 🖥️ Live Demo (Optional)
-
-> If deployed, add your Streamlit/Hugging Face link here  
-> 🔗 [https://vectorvision-facematch.streamlit.app](#)
-
----
 
 ## 🧠 How It Works
 
