@@ -109,9 +109,11 @@ def download_and_read_image_from_drive(file_id):
         return None, None
 
 
-def constant_update_data_base():
-    sheet_id = "1AXF9hMJr4zdAkoNlPIwmCZhJ9_E-0JD2lNoRSRKnBf4"
-    sheet_name = "Missing_Database"
+def constant_update_data_base(sheet_id, sheet_name):   
+    #sheet_id = "1AXF9hMJr4zdAkoNlPIwmCZhJ9_E-0JD2lNoRSRKnBf4"
+    #sheet_name = "Missing_Database"
+    sheet_id = sheet_id
+    sheet_name = sheet_name
     url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name}"
     df = pd.read_csv(url)
 
