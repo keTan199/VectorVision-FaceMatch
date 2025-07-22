@@ -2,7 +2,8 @@ import streamlit as st
 import numpy as np
 import cv2
 from PIL import Image
-
+from dotenv import load_dotenv
+import os
 from utils import (
     detect_face_and_generate_embedding,
     query_pinecone_index,
@@ -11,6 +12,9 @@ from utils import (
     constant_update_data_base,
     download_and_read_image_from_drive
 )
+
+SHEET_ID = os.getenv("GOOGLE_SHEET_ID")
+sheet_name = os.getenv("GOOGLE_SHEET_NAME")
 
 # Page configuration
 st.set_page_config(page_title="Face Matching App", layout="wide")
@@ -51,7 +55,7 @@ with btn_col2:
     if st.button("🔄 Update Database"):
         with st.spinner("Updating database with new entries..."):
             try:
-                constant_update_data_base()
+                constant_update_data_base(SHEET_ID, sheet_name)
                 st.success("✅ Database successfully updated.")
             except Exception as e:
                 st.error(f"❌ Failed to update database: {str(e)}")
